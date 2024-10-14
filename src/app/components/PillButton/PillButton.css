@@ -1,0 +1,44 @@
+.pill-button {
+    position: relative;
+    z-index: 0;
+    height: 3rem;
+    /* Tailwindのh-12に相当 */
+    border-radius: 9999px;
+    /* Tailwindのrounded-fullに相当 */
+    background-color: #3b82f6;
+    /* Tailwindのbg-blue-500に相当 */
+    padding: 0 1.5rem;
+    /* Tailwindのpx-6に相当 */
+    color: #f9fafb;
+    /* Tailwindのtext-neutral-50に相当 */
+    transition: transform 0.3s, opacity 0.5s;
+    /* アクティブ状態の遷移を定義 */
+}
+
+.pill-button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -10;
+    height: 100%;
+    width: 100%;
+    border-radius: 9999px;
+    /* Tailwindのrounded-fullに相当 */
+    /* background-color: #3b82f6; */
+    /* Tailwindのbg-blue-500に相当 */
+    transition: transform 0.5s, opacity 0.5s;
+    /* アクティブ状態の遷移を定義 */
+}
+
+.button:active {
+    transform: scale(0.95);
+    /* Active時の縮小効果 */
+}
+
+.button:active::after {
+    transform: scaleX(1.25) scaleY(1.5);
+    /* Active時の拡大効果 */
+    opacity: 0;
+    /* フェードアウト */
+}
